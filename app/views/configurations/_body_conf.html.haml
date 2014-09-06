@@ -1,0 +1,36 @@
+= paginate @configurations
+%table.table.table-hover
+  %thead
+    %tr
+      %th Nick
+      %th Algo
+      %th HW Type
+      %th HW Name
+      %th MB
+      %th Driver
+      %th Miner
+      %th Config
+  %tbody
+    - @configurations.each do |config|
+      %tr
+        %td
+          = link_to config.nick, configuration_path(config)
+        %td
+          #{config.algo_type_id}
+        %td
+          #{config.hw_type_id}
+        %td
+          #{config.hw_name}
+        %td
+          #{config.mb}
+        %td
+          #{config.driver}
+        %td
+          #{config.miner}
+        %td
+          #{config.config}
+        %td
+          = link_to "Edit", edit_configuration_path(config)
+        %td
+          = link_to "Delete", configuration_path(config), method: :delete, data: {confirm: 'sure?'}
+= paginate @configurations

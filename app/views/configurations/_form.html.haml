@@ -1,11 +1,13 @@
 = simple_form_for @configuration, :html => { :class => 'form-horizontal' } do |f|
   = f.input :nick
-  = f.input :cpu
-  = f.input :motherboard
-  = f.input :video
+  = f.association :algo_type
+  = f.association :hw_type
+  = f.input :hw_name
+  = f.input :mb
+  = f.input :driver
   = f.input :miner
   = f.input :config
   .form-actions
     = f.button :submit, :class => 'btn-primary'
-    = link_to t('.cancel', :default => t("helpers.links.cancel")), |
-      configurations_path, :class => 'btn'                         |
+    = link_to t('.cancel', :default => t("helpers.links.cancel")), 
+      configurations_path, :class => 'btn'                         

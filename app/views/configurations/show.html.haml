@@ -9,19 +9,19 @@
   %dd= @configuration.nick
   %dt
     %strong
-      = model_class.human_attribute_name(:cpu)
+      = model_class.human_attribute_name(:hw_name)
       \:
-  %dd= @configuration.cpu
+  %dd= @configuration.hw_name
   %dt
     %strong
-      = model_class.human_attribute_name(:motherboard)
+      = model_class.human_attribute_name(:mb)
       \:
-  %dd= @configuration.motherboard
+  %dd= @configuration.mb
   %dt
     %strong
-      = model_class.human_attribute_name(:video)
+      = model_class.human_attribute_name(:driver)
       \:
-  %dd= @configuration.video
+  %dd= @configuration.driver
   %dt
     %strong
       = model_class.human_attribute_name(:miner)

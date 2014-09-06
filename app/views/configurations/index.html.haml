@@ -1,1 +1,6 @@
-Soon...
+= render "search"
+%h2
+  All configurations:
+= render "body_conf"
+%p
+  = link_to "Add", new_configuration_path, class: 'btn btn-primary'

@@ -11,10 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140902095136) do
+ActiveRecord::Schema.define(version: 20140904045435) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "algo_types", force: true do |t|
+    t.string "name"
+  end
 
   create_table "configurations", force: true do |t|
     t.string   "nick"
@@ -26,6 +30,11 @@ ActiveRecord::Schema.define(version: 20140902095136) do
     t.text     "config"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "algo_type_id"
+  end
+
+  create_table "hw_types", force: true do |t|
+    t.string "name"
   end
 
 end

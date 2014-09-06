@@ -31,6 +31,8 @@ gem 'less-rails'
 gem 'twitter-bootstrap-rails'
 gem 'haml'
 gem 'simple_form'
+gem 'kaminari'
+gem 'ransack'
 
 group :prodaction do
   gem 'rails_12factor'

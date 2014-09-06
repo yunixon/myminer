@@ -4,7 +4,8 @@ class ConfigurationsController < ApplicationController
   layout 'main'
   
   def index
-    @configurations = ::Configuration.all
+    @search = ::Configuration.search(params[:q])
+    @configurations = @search.result.order(:nick).page(params[:page])
   end
   
   def new
@@ -45,8 +46,8 @@ class ConfigurationsController < ApplicationController
   private
   
   def configuration_params
-    params.require(:configuration).permit(:nick, :cpu, :motherboard, :video,
-      :miner, :config)
+    params.require(:configuration).permit(:nick, :algo_type_id, :hw_type_id, :hw_name,
+      :mb, :driver, :miner, :config)
   end
   
   def set_config
