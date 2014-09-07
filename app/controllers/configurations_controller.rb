@@ -47,7 +47,7 @@ class ConfigurationsController < ApplicationController
   
   def configuration_params
     params.require(:configuration).permit(:nick, :algo_type_id, :hw_type_id, :hw_name,
-      :mb, :driver, :miner, :config)
+      :mb, :driver, :miner, :config, :hashrate, :miner_pic, :gpuz_pic)
   end
   
   def set_config

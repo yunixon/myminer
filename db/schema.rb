@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140904045435) do
+ActiveRecord::Schema.define(version: 20140907073530) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,9 @@ ActiveRecord::Schema.define(version: 20140904045435) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "algo_type_id"
+    t.decimal  "hashrate"
+    t.string   "miner_pic"
+    t.string   "gpuz_pic"
   end
 
   create_table "hw_types", force: true do |t|

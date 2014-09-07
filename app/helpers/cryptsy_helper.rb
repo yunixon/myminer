@@ -1,0 +1,2 @@
+module CryptsyHelper
+end

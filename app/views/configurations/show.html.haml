@@ -4,6 +4,11 @@
 %dl.dl-horizontal
   %dt
     %strong
+      = model_class.human_attribute_name(:hashrate)
+      \:
+  %dd= @configuration.hashrate
+  %dt
+    %strong
       = model_class.human_attribute_name(:nick)
       \:
   %dd= @configuration.nick
@@ -32,6 +37,17 @@
       = model_class.human_attribute_name(:config)
       \:
   %dd= @configuration.config
+  %dt
+    %strong
+      = model_class.human_attribute_name(:miner_pic)
+      \:
+  %dd= link_to image_tag(@configuration.miner_pic.url(:thumbnail)), @configuration.miner_pic.url
+  %dt
+    %strong
+      = model_class.human_attribute_name(:gpuz_pic)
+      \:
+  %dd= link_to image_tag(@configuration.gpuz_pic.url(:thumbnail)), @configuration.gpuz_pic.url
+  
 .form-actions
   = link_to t('.back', :default => t("helpers.links.back")), |
     configurations_path, :class => 'btn'                     |

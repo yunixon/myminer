@@ -3,6 +3,7 @@
   %thead
     %tr
       %th Nick
+      %th Hashrate
       %th Algo
       %th HW Type
       %th HW Name
@@ -10,15 +11,19 @@
       %th Driver
       %th Miner
       %th Config
+      %th MinerPic
+      %th GpuZPic
   %tbody
     - @configurations.each do |config|
       %tr
         %td
+          #{config.hashrate}
+        %td
           = link_to config.nick, configuration_path(config)
         %td
-          #{config.algo_type_id}
+          #{config.algo_type.name}
         %td
-          #{config.hw_type_id}
+          #{config.hw_type.name}
         %td
           #{config.hw_name}
         %td
@@ -29,6 +34,10 @@
           #{config.miner}
         %td
           #{config.config}
+        %td
+          = image_tag config.miner_pic.url(:mini_thumbnail)
+        %td
+          = image_tag config.gpuz_pic.url(:mini_thumbnail)
         %td
           = link_to "Edit", edit_configuration_path(config)
         %td

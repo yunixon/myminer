@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: myminer
+  api_key: '718668245522484'
+  api_secret: VRqYeDTpkD5oM5yJY9yGAVPm5O4
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: myminer
+  api_key: '718668245522484'
+  api_secret: VRqYeDTpkD5oM5yJY9yGAVPm5O4
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: myminer
+  api_key: '718668245522484'
+  api_secret: VRqYeDTpkD5oM5yJY9yGAVPm5O4
+  enhance_image_tag: true
+  static_image_support: false

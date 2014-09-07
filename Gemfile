@@ -34,6 +34,16 @@ gem 'simple_form'
 gem 'kaminari'
 gem 'ransack'
 
+gem 'carrierwave'
+gem 'rmagick'
+gem 'cloudinary'
+
+gem 'pry'
+gem 'pry-nav'
+
+gem 'httparty'
+gem 'cryptsy-api'
+
 group :prodaction do
   gem 'rails_12factor'
 end
