@@ -26,11 +26,11 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 gem 'spring',        group: :development
 
-gem 'therubyracer'
-gem 'less-rails'
-gem 'twitter-bootstrap-rails'
+gem 'therubyracer', platforms: :ruby
+gem 'autoprefixer-rails'
+gem 'bootstrap-sass', '~> 3.2.0'
 gem 'haml'
-gem 'simple_form'
+gem 'simple_form', '~> 3.1.0.rc1', github: 'plataformatec/simple_form', branch: 'master'
 gem 'kaminari'
 gem 'ransack'
 
@@ -43,6 +43,8 @@ gem 'pry-nav'
 
 gem 'httparty'
 gem 'cryptsy-api'
+
+gem 'devise'
 
 group :prodaction do
   gem 'rails_12factor'

@@ -49,14 +49,16 @@
   %dd= link_to image_tag(@configuration.gpuz_pic.url(:thumbnail)), @configuration.gpuz_pic.url
   
 .form-actions
-  = link_to t('.back', :default => t("helpers.links.back")), |
-    configurations_path, :class => 'btn'                     |
+  = link_to t('.back', :default => t("helpers.links.back")),
+    configurations_path, :class => 'btn'                     
   -#
-  = link_to t('.edit', :default => t("helpers.links.edit")), |
-    edit_configuration_path(@configuration), :class => 'btn' |
+  = link_to t('.edit', :default => t("helpers.links.edit")), 
+    edit_configuration_path(@configuration), :class => 'btn' 
   -#
-  = link_to t('.destroy', :default => t("helpers.links.destroy")),                                               |
-    configuration_path(@configuration),                                                                          |
-    :method => 'delete',                                                                                         |
-    :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, |
-    :class => 'btn btn-danger'                                                                                   |
+  = link_to t('.destroy', :default => t("helpers.links.destroy")),                                               
+    configuration_path(@configuration),                                                                          
+    :method => 'delete',                                                                                         
+    :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, 
+    :class => 'btn btn-danger'
+  -#
+    = link_to "Publicate", set_public(@configuration), class: 'btn btn-primary'

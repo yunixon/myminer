@@ -1,0 +1,14 @@
+#sign_up.modal.fade.in
+  .modal-dialog
+    .modal-content 
+      .modal-header
+        %button.close{"data-dismiss" => "modal"} x
+        %h2 Sign up
+      .modal-body
+        = simple_form_for(User.new, url: registration_path(:user), html: {id: 'sign_up_user',
+          class: 'form-vertical', :'data-type' => 'json'}, remote: true) do |f|
+          = f.input :nick, autofocus: true
+          = f.input :password, autocomplete: "off"
+          = f.submit "Sign up", class: 'btn btn-primary'
+      .modal-footer
+    

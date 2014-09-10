@@ -6,4 +6,15 @@ class Configuration < ActiveRecord::Base
   
   mount_uploader :miner_pic, MinerPicUploader
   mount_uploader :gpuz_pic, MinerPicUploader
+  
+  protected
+  
+  def set_public
+    self.update(publicated: true)
+  end
+  
+  def unset_public
+    self.update(publicated: false)
+  end
+  
 end

@@ -1,7 +1,6 @@
 class ConfigurationsController < ApplicationController
   
   before_action :set_config, only: [:show, :edit, :update]
-  layout 'main'
   
   def index
     @search = ::Configuration.search(params[:q])
@@ -17,6 +16,7 @@ class ConfigurationsController < ApplicationController
   
   def create
     @configuration = ::Configuration.new(configuration_params)
+    @configuration.publicated = false
     if @configuration.save
       flash[:notice] = "Successfully created Config." 
       redirect_to @configuration
