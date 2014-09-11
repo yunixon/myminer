@@ -2,7 +2,7 @@
 %html
   %head
     %meta{:charset => "utf-8"}/
-    %title= content_for?(:title) ? yield(:title) : "Myminer"
+    %title= content_for?(:title) ? yield(:title) : "My Miner"
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
@@ -11,14 +11,14 @@
       .container-fluid
         / Brand and toggle get grouped for better mobile display
         .navbar-header
-          %button.navbar-toggle.collapsed{"data-target" => "#bs-example-navbar-collapse-1", "data-toggle" => "collapse", :type => "button"}
+          %button.navbar-toggle.collapsed{"data-target" => "#bs-main", "data-toggle" => "collapse", :type => "button"}
             %span.sr-only Toggle navigation
             %span.icon-bar
             %span.icon-bar
             %span.icon-bar
-          %a.navbar-brand{:href => "#"} My miner
+          %a.navbar-brand{:href => "#"} My Miner
         / Collect the nav links, forms, and other content for toggling
-        #bs-example-navbar-collapse-1.collapse.navbar-collapse
+        #bs-main.collapse.navbar-collapse
           %ul.nav.navbar-nav
             %li.active= link_to "Home", root_url
             %li= link_to "Top", "#"
@@ -27,10 +27,11 @@
             = render 'devise/menu/registration_items'
             = render 'devise/menu/login_items'
     .container
+      = render 'layouts/messages'
       = yield
-  %footer
-    .container
-      %ul.nav.pull-right
-        %li.navbar-text © Omikron - 2014
+    %footer
+      .container
+        %ul.nav.pull-right
+          %li.navbar-text © My Miner
 = render 'shared/sign_in'
 = render 'shared/sign_up'

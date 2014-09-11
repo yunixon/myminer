@@ -45,6 +45,7 @@ gem 'httparty'
 gem 'cryptsy-api'
 
 gem 'devise'
+gem 'cancancan'
 
 group :prodaction do
   gem 'rails_12factor'

@@ -2,8 +2,9 @@
 %table.table.table-hover
   %thead
     %tr
-      %th Nick
       %th Hashrate
+      %th (K|M|G)H/s
+      %th Nick
       %th Algo
       %th HW Type
       %th HW Name
@@ -18,6 +19,8 @@
       %tr
         %td
           #{config.hashrate}
+        %td
+          #{config.hash_speed.speed}
         %td
           = link_to config.nick, configuration_path(config)
         %td
@@ -38,8 +41,9 @@
           = image_tag config.miner_pic.url(:mini_thumbnail)
         %td
           = image_tag config.gpuz_pic.url(:mini_thumbnail)
-        %td
-          = link_to "Edit", edit_configuration_path(config)
-        %td
-          = link_to "Delete", configuration_path(config), method: :delete, data: {confirm: 'sure?'}
+        - if can? :update, config
+          %td
+            = link_to "Edit", edit_configuration_path(config)
+          %td
+            = link_to "Delete", configuration_path(config), method: :delete, data: {confirm: 'sure?'}
 = paginate @configurations

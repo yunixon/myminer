@@ -1,5 +1,5 @@
 class ConfigurationsController < ApplicationController
-  
+  load_and_authorize_resource param_method: :configuration_params
   before_action :set_config, only: [:show, :edit, :update]
   
   def index
@@ -47,7 +47,7 @@ class ConfigurationsController < ApplicationController
   
   def configuration_params
     params.require(:configuration).permit(:nick, :algo_type_id, :hw_type_id, :hw_name,
-      :mb, :driver, :miner, :config, :hashrate, :miner_pic, :gpuz_pic)
+      :hash_speed_id, :mb, :driver, :miner, :config, :hashrate, :miner_pic, :gpuz_pic)
   end
   
   def set_config

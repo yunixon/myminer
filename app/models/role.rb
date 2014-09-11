@@ -1,5 +1,5 @@
-class AlgoType < ActiveRecord::Base
-  has_many :configurations, dependent: :destroy
+class Role < ActiveRecord::Base
+  has_many :users
   
   validates :name, presence: true
   validates :name, length: { minimum: 3, maximum: 40 }

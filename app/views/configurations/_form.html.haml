@@ -1,9 +1,10 @@
 = simple_form_for @configuration, :html => { :class => 'form-vertical' } do |f|
-  = f.input :nick
-  = f.input :hashrate
-  = f.association :algo_type
-  = f.association :hw_type
-  = f.input :hw_name
+  = f.input :nick, placeholder: "nickname"
+  = f.association :hash_speed, label_method: :speed, value_method: :id, include_blank: false
+  = f.input :hashrate, placeholder: "450"
+  = f.association :algo_type, include_blank: false
+  = f.association :hw_type, include_blank: false
+  = f.input :hw_name, placeholder: "Radeon HD 7990"
   = f.input :mb
   = f.input :driver
   = f.input :miner
