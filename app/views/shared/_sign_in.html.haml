@@ -6,7 +6,7 @@
         %h2 Sign in
       .modal-body
         = simple_form_for(User.new, url: session_path(:user), html:{id: 'sign_in_user',
-          class: 'form-vertical', :'data-type' => 'json'}, remote: true) do |f|
+          class: 'form-vertical', :'data-type' => 'json'}, remote:true) do |f|
           = f.input :nick, autofocus: true
           = f.input :password, autocomplete: "off"
           = f.submit "Login", class: 'btn btn-primary'

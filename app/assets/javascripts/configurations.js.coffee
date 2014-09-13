@@ -4,6 +4,7 @@
 $ ->
   $("form#sign_in_user, form#sign_up_user").bind("ajax:success", (event, xhr, settings) ->
     $(this).parents('.modal').modal('hide')
+    $('#login_menu').html("<li><a href='/users/edit'>Edit registration</a></li><li><a data-method='delete' href='/users/sign_out'>Log Out</a></li>")
   ).bind("ajax:error", (event, xhr, settings, exceptions) ->
     error_messages = if xhr.responseJSON['error']
       "<div class='alert alert-danger pull-left'>" + xhr.responseJSON['error'] + "</div>"
@@ -13,5 +14,5 @@ $ ->
       ).join ""
     else
       "<div class='alert alert-danger pull-left'>Unknown error</div>"
-    $(this).parents('.modal').children('.modal-footer').html(error_messages)
+    $(this).parents('.modal-content').children('.modal-footer').html(error_messages)
   )
