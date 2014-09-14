@@ -3,7 +3,7 @@ class ConfigurationsController < ApplicationController
   before_action :set_config, only: [:show, :edit, :update]
   
   def index
-    @search = ::Configuration.search(params[:q])
+    @search = ::Configuration.published.search(params[:q])
     @configurations = @search.result.order(:nick).page(params[:page])
   end
   
@@ -43,7 +43,14 @@ class ConfigurationsController < ApplicationController
     redirect_to root_url
   end
   
+  def change_public_status
+    @configuration.change_public_status
+    redirect_to :back
+  end
+  
   private
+  
+  
   
   def configuration_params
     params.require(:configuration).permit(:nick, :algo_type_id, :hw_type_id, :hw_name,

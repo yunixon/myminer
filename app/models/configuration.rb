@@ -15,14 +15,12 @@ class Configuration < ActiveRecord::Base
   validates :hashrate, numericality: { greater_than: 0.0 }
   validates_associated :algo_type, :hw_type, :hash_speed
   
+  scope :published, -> { where(publicated: true) }
+  
+  def change_public_status
+    self.update(publicated: (self.publicated == false) ? true : false)
+  end
+  
   protected
-  
-  def set_public
-    self.update(publicated: true)
-  end
-  
-  def unset_public
-    self.update(publicated: false)
-  end
   
 end

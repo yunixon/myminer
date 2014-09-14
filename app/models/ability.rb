@@ -5,11 +5,14 @@ class Ability
     # Define abilities for the passed in user here. For example:
     #
     #user ||= User.new # guest user (not logged in)
+    can :read, ::Configuration, :publicated => true
+    can :create, ::Configuration
     if user != nil
-      can :manage, :all
-    else
-      can :read, :all
+      #can :read, Comment
+      #can :create, Comment
+      can :read, ::Configuration, :publicated => true
       can :create, ::Configuration
+      can :manage, :all if user.role.name == 'admin'      
     end
     #
     # The first argument to `can` is the action you are giving the user

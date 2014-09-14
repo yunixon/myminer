@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: {sessions: 'sessions', registrations: 'registrations'}
-  resources :configurations
+  resources :configurations do
+    member do
+      post 'change_public_status'
+    end
+  end
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
