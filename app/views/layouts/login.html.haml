@@ -1,0 +1,13 @@
+!!!
+%html
+  %head
+    %meta{:charset => "utf-8"}/
+    %title= content_for?(:title) ? yield(:title) : "My Miner"
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+  %body
+    .container
+      .col-md-4.col-md-offset-4
+        = render 'layouts/messages'
+        = yield
