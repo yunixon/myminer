@@ -7,9 +7,9 @@ class Ability
     #user ||= User.new # guest user (not logged in)
     can :read, ::Configuration, :publicated => true
     can :create, ::Configuration
-    if user != nil
-      #can :read, Comment
-      #can :create, Comment
+    can :read, Comment
+    if user != nil      
+      can :create, Comment
       can :read, ::Configuration, :publicated => true
       can :create, ::Configuration
       can :manage, :all if user.role.name == 'admin'      

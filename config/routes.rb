@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: {sessions: 'sessions', registrations: 'registrations'}
   resources :configurations do
+    resources :comments, only: [:create, :destroy]
     member do
       post 'change_public_status'
     end

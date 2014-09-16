@@ -47,6 +47,8 @@ gem 'cryptsy-api'
 gem 'devise'
 gem 'cancancan'
 
+gem 'acts_as_commentable_with_threading'
+
 group :prodaction do
   gem 'rails_12factor'
 end

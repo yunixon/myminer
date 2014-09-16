@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable, :validatable#, :authentication_keys => [:nick]
   
   belongs_to :role
+  has_many   :comments, dependent: :destroy
   
   before_create :set_default_role
   

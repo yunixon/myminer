@@ -35,6 +35,8 @@ class ConfigurationsController < ApplicationController
   end
 
   def show
+    @comments = @configuration.comment_threads.order('created_at desc')
+    @new_comment = Comment.build_from(@configuration, current_user.id, "") if user_signed_in?
   end
   
   def destroy
@@ -49,8 +51,6 @@ class ConfigurationsController < ApplicationController
   end
   
   private
-  
-  
   
   def configuration_params
     params.require(:configuration).permit(:nick, :algo_type_id, :hw_type_id, :hw_name,

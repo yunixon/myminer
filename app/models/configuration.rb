@@ -1,9 +1,13 @@
 require 'carrierwave/orm/activerecord'
 
 class Configuration < ActiveRecord::Base
+  
+  acts_as_commentable
+  
   belongs_to :algo_type
   belongs_to :hw_type
   belongs_to :hash_speed
+  #has_many   :comments, dependent: :destroy
   
   mount_uploader :miner_pic, MinerPicUploader
   mount_uploader :gpuz_pic, MinerPicUploader
