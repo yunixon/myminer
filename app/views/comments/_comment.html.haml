@@ -1,6 +1,7 @@
-= comment.user.nick
-%small= comment.updated_at.to_date
-.panel.panel-default 
-  .panel-body
-    = comment.body
+= div_for comment do
+  = comment.user.nick
+  %small= comment.updated_at.to_date
+  .panel.panel-default 
+    .panel-body
+      = comment.body
       

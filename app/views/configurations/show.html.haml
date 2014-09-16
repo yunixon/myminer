@@ -39,7 +39,7 @@
     = button_to "Publicate/Unpublicate", change_public_status_configuration_path(@configuration), class: 'btn btn-primary'
 %h3
   Comments: 
+= render @configuration.root_comments
+#comments
 - if @new_comment
   = render partial: 'comments/form', locals:  { comment: @new_comment }
-#comments
-= render @configuration.root_comments
