@@ -6,19 +6,28 @@ Rails.application.routes.draw do
       post 'change_public_status'
     end
   end
-  
+
+  resources :rigs do
+    resources :comments, only: [:create, :destroy]
+    member do
+      post 'change_public_status'
+    end
+
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
   root 'configurations#index'
 
-  get '/unpublished' => 'configurations#unpublished'
+  get '/configs_unpublished' => 'configurations#unpublished'
+  get '/rigs_unpublished' => 'rigs#unpublished'
   #get '/getinfo' => 'cryptsy#getinfo'
   #get '/orderbook' => 'cryptsy#orderbook'
   #get '/market' => 'cryptsy#market'
   #get '/depth' => 'cryptsy#depth'
-  
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
