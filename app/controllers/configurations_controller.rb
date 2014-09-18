@@ -18,8 +18,8 @@ class ConfigurationsController < ApplicationController
     @configuration = ::Configuration.new(configuration_params)
     @configuration.publicated = false
     if @configuration.save
-      flash[:notice] = "Successfully created Config." 
-      redirect_to @configuration
+      flash[:notice] = "Successfully created. Be added after check!" 
+      redirect_to root_url
     else
       render 'new'
     end
@@ -48,6 +48,11 @@ class ConfigurationsController < ApplicationController
   def change_public_status
     @configuration.change_public_status
     redirect_to :back
+  end
+  
+  def unpublished
+    @search = ::Configuration.unpublished.search(params[:q])
+    @configurations = @search.result.order(:nick).page(params[:page])
   end
   
   private

@@ -17,3 +17,9 @@ end
 ['KH/s', 'MH/s', 'GH/s'].each do |speed|
   HashSpeed.find_or_create_by({speed: speed})
 end
+
+['ASIC', '2x Rig ASICs', '3x Rig ASICs', '4x Rig ASICs', 'Big Rig ASICs', 'AMD Radeon',
+  '2x Rig AMD Radeon', '3x Rig AMD Radeon', '4x Rig AMD Radeon', '5x Rig AMD Radeon', 'Big Rig AMD Radeon',
+  'NVidia'].each do |name|
+  HwType.find_or_create_by({name: name})
+end

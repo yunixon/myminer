@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'configurations#index'
 
+  get '/unpublished' => 'configurations#unpublished'
   #get '/getinfo' => 'cryptsy#getinfo'
   #get '/orderbook' => 'cryptsy#orderbook'
   #get '/market' => 'cryptsy#market'

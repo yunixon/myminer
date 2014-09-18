@@ -7,7 +7,6 @@ class Configuration < ActiveRecord::Base
   belongs_to :algo_type
   belongs_to :hw_type
   belongs_to :hash_speed
-  #has_many   :comments, dependent: :destroy
   
   mount_uploader :miner_pic, MinerPicUploader
   mount_uploader :gpuz_pic, MinerPicUploader
@@ -20,6 +19,7 @@ class Configuration < ActiveRecord::Base
   validates_associated :algo_type, :hw_type, :hash_speed
   
   scope :published, -> { where(publicated: true) }
+  scope :unpublished, -> { where(publicated: false) }
   
   def change_public_status
     self.update(publicated: (self.publicated == false) ? true : false)
