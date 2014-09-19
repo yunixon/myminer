@@ -1,0 +1,6 @@
+= search_form_for @search, class: 'form-inline' do |f|
+  .field
+    = f.search_field :name_cont, placeholder: "Search",
+      class: "form-control"
+    %button.btn.btn-default{:type => "submit"}
+      %span.glyphicon.glyphicon-search

@@ -1,0 +1,19 @@
+= paginate @rigs
+%table.table.table-hover
+  %thead
+    %tr
+      %th Name
+      %th Photo
+  %tbody
+    - @rigs.each do |rig|
+      %tr
+        %td
+          #{rig.name}
+        %td
+          = image_tag rig.photo.url(:mini_thumbnail)
+        - if can? :update, rig
+          %td
+            = link_to "Edit", edit_rig_path(rig)
+          %td
+            = link_to "Delete", rig_path(rig), method: :delete, data: {confirm: 'sure?'}
+= paginate @rigs

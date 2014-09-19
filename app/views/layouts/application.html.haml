@@ -22,7 +22,7 @@
           %ul.nav.navbar-nav
             %li.active= link_to "Home", root_url
             %li= link_to "Top", "#"
-            %li= link_to "Rigs", "#"
+            %li= link_to "Rigs", rigs_path
           %ul.nav.navbar-nav.pull-right#login_menu
             %li= link_to 'Unpublished configs', configs_unpublished_path if user_signed_in? && current_user.role.name == 'admin'
             %li= link_to 'Unpublished rigs', rigs_unpublished_path if user_signed_in? && current_user.role.name == 'admin'

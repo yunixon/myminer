@@ -3,7 +3,7 @@ class Rig < ActiveRecord::Base
 
   mount_uploader :photo, MinerPicUploader
 
-  validates :name, :photo presence: true
+  validates :name, :photo, presence: true
   validates :name, length: { minimum: 3, maximum: 40 }
 
   scope :published, -> { where(published: true) }

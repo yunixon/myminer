@@ -1,0 +1,26 @@
+%h4
+  Name: #{@rig.name}
+%p
+  = link_to image_tag(@rig.photo.url(:thumbnail)), @rig.photo.url
+
+.form-actions
+  = link_to t('.back', default: t("helpers.links.back")),
+    rigs_path, :class => 'btn'
+  -#
+  - if can? :update, @rig
+    = link_to t('.edit', :default => t("helpers.links.edit")),
+      edit_rig_path(@rig), :class => 'btn'
+    = link_to t('.destroy', :default => t("helpers.links.destroy")),
+      rig_path(@rig),
+      :method => 'delete',
+      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+      :class => 'btn btn-danger'
+    %p
+      Status: #{@rig.published}
+    = button_to "Publicate/Unpublicate", change_public_status_rig_path(@rig), class: 'btn btn-primary'
+%h3
+  Comments:
+= render @rig.root_comments
+#comments
+- if @new_comment
+  = render partial: 'comments/form', locals:  { comment: @new_comment }
