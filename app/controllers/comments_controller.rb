@@ -2,7 +2,6 @@ class CommentsController < ApplicationController
 
   load_and_authorize_resource param_method: :comment_params
   before_action :authenticate_user!, only: [:create]
-  before_action :find_conf, only: [:create]
   
   def create
     @comment_hash = params[:comment]
@@ -17,7 +16,7 @@ class CommentsController < ApplicationController
     
     respond_to do |format|
       if @comment.save
-        format.html { redirect_to @configuration, notice: 'Comment was successfully created.' }
+        format.html { redirect_to @obj, notice: 'Comment was successfully created.' }
         format.json { render 'comment', locals: {comment: @comment}, layout: false, status: :created }
         format.js #create.js.haml
       else
@@ -33,10 +32,6 @@ class CommentsController < ApplicationController
         
   def comment_params
     params.require(:comment).permit(:commentable_id, :commentable_type, :title, :body, :subject, :user_id, :parent_id, :lft, :rqt)
-  end
-  
-  def find_conf
-    @configuration = ::Configuration.find(params[:configuration_id])
   end
   
 end

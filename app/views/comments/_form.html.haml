@@ -1,4 +1,4 @@
-= simple_form_for([@configuration, @new_comment], remote: true, html: {class: 'comment-reply', id: 'new_comment'}) do |f|
+= simple_form_for([obj, comment], remote: true, html: {class: 'comment-reply', id: 'new_comment'}) do |f|
   = render 'shared/error_messages', object: f.object
   = f.hidden_field :commentable_id, value: comment.commentable_id
   = f.hidden_field :commentable_type, value: comment.commentable_type
