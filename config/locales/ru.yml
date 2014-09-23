@@ -1,4 +1,7 @@
 ru:
+  config_create: "Конфигурация создана. Будет добавлена после проверки!"
+  config_update: "Конфигурация обновлена"
+  config_delete: "Конфигурация удалена"
   date:
     abbr_day_names:
     - Вс

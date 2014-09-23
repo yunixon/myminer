@@ -18,7 +18,7 @@ class ConfigurationsController < ApplicationController
     @configuration = ::Configuration.new(configuration_params)
     @configuration.published = false
     if @configuration.save
-      flash[:notice] = "Successfully created. Be added after check!"
+      flash[:notice] = t(:config_create)
       redirect_to root_url
     else
       render 'new'
@@ -27,7 +27,7 @@ class ConfigurationsController < ApplicationController
 
   def update
     if @configuration.update(configuration_params)
-      flash[:success] = "Config updated"
+      flash[:success] = t(:config_update)
       redirect_to @configuration
     else
       render 'edit'
@@ -41,7 +41,7 @@ class ConfigurationsController < ApplicationController
 
   def destroy
     ::Configuration.find(params[:id]).destroy
-    flash[:success] = "Config destroyed."
+    flash[:success] = t(:config_delete)
     redirect_to root_url
   end
 

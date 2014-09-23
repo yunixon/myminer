@@ -21,3 +21,6 @@
 
 en:
   hello: "Hello world"
+  config_create: "Successfully created. Be added after check!"
+  config_update: "Config updated"
+  config_delete: "Config destroyed"

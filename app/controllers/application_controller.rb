@@ -14,14 +14,12 @@ class ApplicationController < ActionController::Base
 
   def set_ru_locale
     I18n.locale = :ru
-    I18n.default_locale = :ru
-    redirect_to :back
+    redirect_to root_url
   end
 
   def set_en_locale
     I18n.locale = :en
-    I18n.default_locale = :en
-    redirect_to :back
+    redirect_to root_url
   end
 
   protected
