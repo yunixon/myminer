@@ -21,6 +21,8 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'configurations#index'
 
+  get '/set_ru_locale' => 'application#set_ru_locale'
+  get '/set_en_locale' => 'application#set_en_locale'
   get '/configs_unpublished' => 'configurations#unpublished'
   get '/rigs_unpublished' => 'rigs#unpublished'
   #get '/getinfo' => 'cryptsy#getinfo'

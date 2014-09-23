@@ -20,7 +20,7 @@ class RigsController < ApplicationController
     @rig.published = false
     if @rig.save
       flash[:notice] = "Successfully created. Be added after check!"
-      redirect_to root_url
+      redirect_to rigs_path
     else
       render 'new'
     end

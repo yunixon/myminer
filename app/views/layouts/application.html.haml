@@ -26,6 +26,8 @@
           %ul.nav.navbar-nav.pull-right#login_menu
             %li= link_to 'Unpublished configs', configs_unpublished_path if user_signed_in? && current_user.role.name == 'admin'
             %li= link_to 'Unpublished rigs', rigs_unpublished_path if user_signed_in? && current_user.role.name == 'admin'
+            %li= link_to 'RU', set_ru_locale_path, data: { no_turbolink: true }
+            %li= link_to 'EN', set_en_locale_path, data: { no_turbolink: true }
             = render 'devise/menu/registration_items'
             = render 'devise/menu/login_items'
     .container
